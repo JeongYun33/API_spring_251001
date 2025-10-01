@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .calculator {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #1e3a8a;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        input[type="number"], select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        
+        input[type="number"]:focus, select:focus {
+            outline: none;
+            border-color: #1e3a8a;
+        }
+        
+        .operation-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .operation-group select {
+            flex: 1;
+        }
+        
+        .result {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin: 20px 0;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #1e3a8a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #01258a;
+        }
+        
+        button:active {
+            transform: translateY(1px);
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>계산기</h1>
+        
+        <form id="calculatorForm" action="/calculate" method="POST">
+            <div class="form-group">
+                <label for="num1">첫 번째 숫자:</label>
+                <input type="number" id="num1" name="num1" step="any" required>
+            </div>
+
+            <div class="form-group">
+                <label for="num2">두 번째 숫자:</label>
+                <input type="number" id="num2" name="num2" step="any" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="operation">연산 선택:</label>
+                <div class="operation-group">
+                    <select id="operation" name="operation" required>
+                        <option value="">연산을 선택하세요</option>
+                        <option value="add">덧셈 (+)</option>
+                        <option value="subtract">뺄셈 (-)</option>
+                        <option value="multiply">곱셈 (×)</option>
+                        <option value="divide">나눗셈 (÷)</option>
+                    </select>
+                </div>
+            </div>
+            
+            
+            <div class="result" id="result">
+                결과가 여기에 표시됩니다
+            </div>
+            
+            <button type="submit">계산하기</button>
+        </form>
+    </div>
+</body>
+</html>
