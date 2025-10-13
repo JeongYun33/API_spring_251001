@@ -1,0 +1,301 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #e8f5e8 0%, #d4f4d4 50%, #c8f0c8 100%);
+    min-height: 100vh;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(168, 216, 168, 0.2) 0%, transparent 60%),
+        radial-gradient(circle at 80% 20%, rgba(182, 230, 182, 0.2) 0%, transparent 60%),
+        radial-gradient(circle at 40% 40%, rgba(166, 214, 166, 0.15) 0%, transparent 60%),
+        radial-gradient(circle at 60% 70%, rgba(152, 200, 152, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 10% 30%, rgba(168, 216, 168, 0.15) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.navbar {
+    width: 100%;               /* 화면 전체 너비로 변경 */
+    margin: 15px 0 20px 0;    /* 좌우 마진 제거, 상하 마진 유지 */
+    padding: 6px 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    position: sticky;
+    top: 15px;
+    z-index: 100;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+width: 100%;               /* 내부 컨테이너 너비 제한 */
+    max-width: 1000px;        /* 적절한 최대 너비로 변경 */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.login-container {
+    position: static;         
+    z-index: 101;
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 18px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.navbar-item {
+    position: relative;
+}
+
+.navbar-link {
+    color: #5a7c5a;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.85em;
+    padding: 4px 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.navbar-link:hover {
+    background: linear-gradient(135deg, #a8d8a8 0%, #98c898 100%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(168, 216, 168, 0.3);
+}
+
+.navbar-link.active {
+    background: linear-gradient(135deg, #6b8e6b 0%, #5a7c5a 100%);
+    color: white;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.logo {
+    font-size: 1.4em;
+    color: #5a7c5a;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 6px 12px;
+    border-radius: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    border: none;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.logo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.logo::before {
+    content: '🌱';
+    font-size: 1em;
+}
+
+.logo::after {
+    content: '🌿';
+    font-size: 1em;
+}
+
+
+.login-box {
+    display: inline-block; 
+    background: linear-gradient(135deg, #a8d8a8 0%, #98c898 100%);
+    color: white;
+    padding: 4px 10px; 
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.85em;
+    box-shadow: 0 2px 10px rgba(168, 216, 168, 0.3);
+    overflow: hidden;
+    position: relative; /* ::before 아이콘 위치 위해 필요 */
+}
+
+.login-box::before {
+    content: '🌿';
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+.login-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(168, 216, 168, 0.4);
+}
+
+.login-box:hover {
+    background: linear-gradient(135deg, #98c898 0%, #88b888 100%);
+}
+
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 200px);
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.welcome-title {
+    font-size: 3.5em;
+    color: #6b8e6b;
+    font-weight: bold;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.welcome-title::before {
+    content: '🌱';
+    font-size: 0.8em;
+}
+
+.welcome-title::after {
+    content: '🌿';
+    font-size: 0.8em;
+}
+
+.welcome-subtitle {
+    font-size: 1.2em;
+    color: #8b9e8b;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+    font-style: italic;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 8px 0;
+    }
+    
+    .navbar-container {
+        padding: 0 20px;
+        max-width: 650px;
+    }
+    
+    .navbar-left {
+        gap: 30px;
+    }
+    
+    .navbar-menu {
+        gap: 12px;
+    }
+    
+    .navbar-link {
+        font-size: 0.8em;
+        padding: 3px 8px;
+    }
+    
+    .logo {
+        font-size: 1.3em;
+        padding: 5px 10px;
+    }
+    
+    .welcome-title {
+        font-size: 2.5em;
+        gap: 15px;
+    }
+    
+    .welcome-subtitle {
+        font-size: 1em;
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-menu {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .navbar-link {
+        font-size: 0.8em;
+        padding: 5px 10px;
+    }
+}
+
+
+/* 추가 자연 요소들 */
+.nature-decoration {
+    position: fixed;
+    font-size: 2em;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: -1;
+    animation: float 6s ease-in-out infinite;
+}
+
+.nature-decoration:nth-child(1) {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.nature-decoration:nth-child(2) {
+    top: 20%;
+    right: 10%;
+    animation-delay: 2s;
+}
+
+.nature-decoration:nth-child(3) {
+    bottom: 30%;
+    left: 15%;
+    animation-delay: 4s;
+}
+
+.nature-decoration:nth-child(4) {
+    bottom: 15%;
+    right: 20%;
+    animation-delay: 1s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+}

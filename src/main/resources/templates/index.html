@@ -3,93 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로그인</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 400px;
-            margin: 100px auto;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-        
-        .login-container {
-            background-color: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        h1 {
-            text-align: center;
-            color: #1e3a8a;
-            margin-bottom: 30px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: #555;
-        }
-        
-        input[type="text"], input[type="password"] {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-            box-sizing: border-box;
-        }
-        
-        input[type="text"]:focus, input[type="password"]:focus {
-            outline: none;
-            border-color: #1e3a8a;
-        }
-        
-        button {
-            width: 100%;
-            padding: 15px;
-            background-color: #1e3a8a;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        button:hover {
-            background-color: #1e40af;
-        }
-        
-        button:active {
-            transform: translateY(1px);
-        }
-    </style>
+    <title>풀풀로그</title>
+    <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
-    <div class="login-container">
-        <h1>로그인</h1>
-        
-        <form>
-            <div class="form-group">
-                <label for="username">아이디:</label>
-                <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required>
+    <!-- 네비게이션 바 -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-left">
+                <div class="logo">GreenPulLog</div>
+                <ul class="navbar-menu">
+                    <li class="navbar-item">
+                        <a href="#" class="navbar-link active">홈</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="#" class="navbar-link">내 기록</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="#" class="navbar-link">미션</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="#" class="navbar-link">나의 지구</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="#" class="navbar-link">퀴즈&상식</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a href="#" class="navbar-link">도움말</a>
+                    </li>
+                    <div class="login-container">
+                        <div class="login-box" onclick="location.href='/login'">로그인</div>
+                    </div>
+                    <div class="login-container">
+                        <div class="login-box" onclick="location.heref='/register'">회원가입</div>
+                    </div>
+                </ul>
             </div>
-            
-            <div class="form-group">
-                <label for="password">비밀번호:</label>
-                <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요" required>
-            </div>
-            
-            <button type="button" onclick="window.location.href='calculator.html'">로그인</button>
-        </form>
+        </div>
+    </nav>
+
+    <!-- 히어로 섹션 -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+        <li><a href="/contents/calculator/plus">덧셈 </a></li>
+        <li><a href="/contents/calculator/minus">뺄셈</a></li>
+        <li><a href="/contents/calculator/gob">곱셈</a></li>
+        <li><a href="/contents/calculator/nanum">나눗셈</a></li>
+        </div>
+    </section>
+    
+    
+    
+    <div class="welcome-container">
+        <h1 class="welcome-title">풀풀로그에 오신 것을 환영합니다</h1>
+        <p class="welcome-subtitle">작은 습관 하나하나가 모여,<br>우리 지구를 조금씩 더 푸르고 건강하게 만들어갑니다.</p>
     </div>
+    
+    <!-- 자연 장식 요소들 -->
+    <div class="nature-decoration">🌿</div>
+    <div class="nature-decoration">🌱</div>
+    <div class="nature-decoration">🌺</div>
+    <div class="nature-decoration">🍃</div>
+
+    <script>
+        // 환영 메시지 애니메이션 효과
+        document.addEventListener('DOMContentLoaded', function() {
+            const welcomeTitle = document.querySelector('.welcome-title');
+            const welcomeSubtitle = document.querySelector('.welcome-subtitle');
+            
+            // 제목 페이드인 효과
+            welcomeTitle.style.opacity = '0';
+            welcomeTitle.style.transform = 'translateY(30px)';
+            
+            setTimeout(() => {
+                welcomeTitle.style.transition = 'all 1s ease-out';
+                welcomeTitle.style.opacity = '1';
+                welcomeTitle.style.transform = 'translateY(0)';
+            }, 300);
+            
+            // 부제목 페이드인 효과
+            welcomeSubtitle.style.opacity = '0';
+            welcomeSubtitle.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                welcomeSubtitle.style.transition = 'all 1s ease-out';
+                welcomeSubtitle.style.opacity = '1';
+                welcomeSubtitle.style.transform = 'translateY(0)';
+            }, 800);
+            
+            // 네비게이션 메뉴 활성화 기능
+            const navLinks = document.querySelectorAll('.navbar-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // 모든 링크에서 active 클래스 제거
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    
+                    // 클릭된 링크에 active 클래스 추가
+                    this.classList.add('active');
+                    
+                    // 여기에 실제 페이지 이동 로직 추가 가능
+                    console.log('Navigating to:', this.textContent);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
