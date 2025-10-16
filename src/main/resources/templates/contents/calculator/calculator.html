@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기 - Creative Hub</title>
+</head>
+
+<body>
+    <a href="/" class="back-link">
+        ← 홈으로 돌아가기
+    </a>
+    <div class="login-container">
+        <div class="login-header">
+
+            <h1>계산기</h1>
+        </div>
+
+        <form id="calculatorForm" method="get" action="/contents/calculator/calculator">
+            <select id="operation" name="operation" required>
+                <option value="">연산 선택</option>
+                <option value="plus">덧셈 (+)</option>
+                <option value="minus">빼기 (-)</option>
+                <option value="gob">곱셈 (×)</option>
+                <option value="nanum">나눗셈 (÷)</option>
+            </select>
+
+            <input type="number" id="num1" name="num1" placeholder="첫 번째 숫자" required>
+            <input type="number" id="num2" name="num2" placeholder="두 번째 숫자" required>
+
+            <button type="submit">계산하기</button>
+        </form>
+
+        <div id="result"></div>
+
+    </div>
+
+</body>
+
+</html>
